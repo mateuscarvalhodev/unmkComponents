@@ -4,7 +4,9 @@
   "description": "��#\u0000 \u0000u\u0000n\u0000m\u0000k\u0000C\u0000o\u0000m\u0000p\u0000o\u0000n\u0000e\u0000n\u0000t\u0000s\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "keywords": [],
   "author": "",
@@ -24,7 +26,19 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.13",
+    "@storybook/addon-interactions": "^7.6.13",
+    "@storybook/addon-links": "^7.6.13",
+    "@storybook/addon-onboarding": "^1.0.11",
+    "@storybook/blocks": "^7.6.13",
+    "@storybook/react": "^7.6.13",
+    "@storybook/react-vite": "^7.6.13",
+    "@storybook/test": "^7.6.13",
+    "@types/babel__core": "^7.20.5",
     "@types/react": "^18.2.54",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.6.13",
     "tailwindcss": "^3.4.1"
   }
 }
