@@ -1,4 +1,5 @@
 import SidebarDesktop from './components/Sidebar/SidebarDesktop'
+import { User, Settings, Home } from 'lucide-react'
 
 import './App.css'
 
@@ -10,22 +11,19 @@ function App() {
       <div className='bg-red-300'>
         <SidebarDesktop Logo='vite.svg' sidebarOptions={
           [
-            { name: 'Dashboard', href: '/dashboard', icon: 'Home' },
-            { name: 'Profile', href: '/profile', icon: 'User' },
-            { name: 'Settings', href: '/settings', icon: 'Settings' },
+            { name: 'Dashboard', href: '#', icon: Home },
+            { name: 'Profile', href: '#', icon: User },
+            { name: 'Settings', href: '#', icon: Settings }
           ]
-        } signOut={
-          () => { console.log('signOut') }
-        } style={
-          
+        } signOut={() => { console.log('signOut') }} style={
           {
-            textColor: 'white',
-            textColorHover: 'zinc-200',
-            bgColor: 'zinc-900',
-            bgSelectedPathColor: 'zinc-600',
-            textSelectedPathColor: 'white'
+            textColor: '',
+            textColorHover: '',
+            bgColor: '',
+            bgSelectedPathColor: '',
+            textSelectedPathColor: ''
           }
-        } />
+        }/>
       </div>
     </>
   )
