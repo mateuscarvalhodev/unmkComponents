@@ -11,7 +11,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from '@/src/components/ui/dropdown-menu'
-import { getUserData } from '@/app/services/getUserData'
+
 
 export type Payment = {
   Id: string
@@ -22,6 +22,11 @@ export type Payment = {
   token: string;
   NomeFantasiaEmitente: string
 }
+type Props = {
+
+}
+
+
 export const paymentNameDropDown = {
   Id: 'id',
   ValorTotal: 'valor da nota',
@@ -31,30 +36,8 @@ export const paymentNameDropDown = {
   token: 'token',
   NomeFantasiaEmitente: 'nome do emitente'
 }
-const downloadFile = async (chaveDFe: string, fileType: string) => {
-  const body = {
-    chaveDFe,
-    type: fileType
-  }
-  try {
-    await axios.post("/api/downloadRoutes", {
-      body,
-    }, { responseType: fileType === 'pdf' ? 'blob' : 'text' }).then(res => {
-      console.log(body, res.data);
-      const blob = new Blob([res.data], { type: `application/${fileType}` })
-      const url = window.URL.createObjectURL(blob)
-      const link = document.createElement('a')
-      link.href = url
-      link.download = `${chaveDFe}.${fileType}`
-      document.body.appendChild(link)
-      link.click()
-      link.remove()
-      window.URL.revokeObjectURL(url)
-    })
-  } catch (error) {
-    console.log({ 'Erro ao baixar o arquivo: ': error })
-  }
-};
+
+
 
 export const columns: ColumnDef<Payment>[] = [
   {
@@ -145,8 +128,6 @@ export const columns: ColumnDef<Payment>[] = [
           <DropdownMenuContent align='end'>
             <DropdownMenuLabel>Ações</DropdownMenuLabel>
             <DropdownMenuItem onClick={() => navigator.clipboard.writeText(payment.ChaveDFe)}> <Copy size={14} className='mr-2' /> Copiar chave NFE </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => downloadFile(payment.ChaveDFe, 'xml')} > <Download size={14} className='mr-2' />Download XML </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => downloadFile(payment.ChaveDFe, 'pdf')}><Download size={14} className='mr-2' />Download PDF </DropdownMenuItem>
             <DropdownMenuItem><FileText size={14} className='mr-2' /> Ver detalhes</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu >
