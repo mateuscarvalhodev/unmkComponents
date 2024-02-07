@@ -16,11 +16,10 @@ type SideBarLinkProps = {
 
 export function SideBarLink({ option, style }: SideBarLinkProps) {
   const {bgColor, bgSelectedPathColor, textColor, textColorHover, textSelectedPathColor} = style!
-  const location = useLocation();
-  const { pathname } = location;
+
+  console.log(option.icon)
 
   return (
-    <>
       <li className="list-none">
         <a
           href={option.href}
@@ -30,24 +29,24 @@ export function SideBarLink({ option, style }: SideBarLinkProps) {
                 ? `bg-[${bgSelectedPathColor}]
                   ${
                     textSelectedPathColor
-                      ? `text-[${textSelectedPathColor}]`
-                      : "text-white"
+                      ? `text-${textSelectedPathColor}`
+                      : "text-red-500"
                   }`
-                : "bg-zinc-600 text-white"
+                : "bg-zinc-600 text-red-500"
               : textColor
-              ? `text-[${textColor}] hover:text-[${textColorHover}]
+              ? `text-${textColor} hover:text-${textColorHover}
                     ${
                       bgColor
                         ? `hover:bg-[${bgColor}]`
                         : `hover:bg-zinc-800`
                     }`
-              : "text-white hover:text-zinc-200",
+              : "text-red-500 hover:text-zinc-200",
             "flex items-center px-2 py-2 rounded-md space-x-3"
           )}
         >
           <option.icon
             className={cn(
-              textColor ? `text-[${textColor}]` : "text-white",
+              textColor ? `text-${textColor}` : "text-red-500",
               "h-6 w-6"
             )}
           />
@@ -55,6 +54,5 @@ export function SideBarLink({ option, style }: SideBarLinkProps) {
           <span>{option.name}</span>
         </a>
       </li>
-    </>
   );
 }

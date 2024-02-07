@@ -12,11 +12,12 @@ type MobileSideBarProps = {
 }
 
 export default function SidebarDesktop({ Logo, sidebarOptions, signOut, style }: MobileSideBarProps) {
+  console.log(style)
   return (
     <div className='hidden h-screen lg:fixed  lg:flex lg:w-72 lg:flex-col'>
       <div className={`flex-grow flex flex-col gap-y-5 overflow-y-auto
           ${style?.bgColor
-          ? `bg-${style.bgColor} `
+          ? `bg-${style?.bgColor} `
           : 'bg-zinc-900'} h-screen px-6 pb-4 border-r-2`}>
         <div className='flex h-36 shrink-0 items-center'>
           <img src={Logo} alt='logo' width={100} />
@@ -29,17 +30,17 @@ export default function SidebarDesktop({ Logo, sidebarOptions, signOut, style }:
                   <SideBarLink option={option} style={style} key={option.name} />
                 ))}
                 <li>
-                  <span className={
+                  <a className={
                     cn(
                       style?.textColor
                         ? `text-[${style.textColor}] hover:text-[${style.textColorHover}]`
                         : "text-white hover:text-zinc-200"
                       , "flex items-center px-2 py-2 rounded-md space-x-3 cursor-pointer"
                     )
-                  }><LogOut size={22} onClick={() => {
+                  }><LogOut color={style?.textColor} onClick={() => {
                     signOut();
                   }
-                  } />Sair</span>
+                  } />Sair</a>
                 </li>
               </ul>
             </li>

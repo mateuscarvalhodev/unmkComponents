@@ -2,56 +2,64 @@
 
 import { useState } from "react";
 import { SideBarLink } from "./SidebarLink";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
+
 
 import {
-    Sheet,
-    SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
-  } from "@/app/components/ui/sheet";
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "../../components/ui/sheet";
 
 import { Menu, LogOut } from "lucide-react";
+import { cn } from "../../lib/utils";
 
 type MobileSideBarProps = {
-    Logo: string;
-    sidebarOptions: { name: string, href: string, icon: any }[];
-    signOut: () => void;
-    style?: any;
+  Logo: string;
+  sidebarOptions: { name: string, href: string, icon: any }[];
+  signOut: () => void;
+  style?: any;
 }
 
 
-export default function SideBarMobile({Logo, sidebarOptions, signOut}: MobileSideBarProps) {
-    const [isOpen, setIsOpen] = useState(false);
-    const router = useRouter();
+export default function SideBarMobile({ Logo, sidebarOptions, style, signOut }: MobileSideBarProps) {
+  const [isOpen, setIsOpen] = useState(false);
 
-    return (
-      <div>
+  return (
+    <div>
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger className=' md:hidden outline-none' onClick={() => setIsOpen(true)}>
           <Menu />
         </SheetTrigger>
-        <SheetContent side='left'>
+        <SheetContent side='left' className="bg-red-500">
           <SheetHeader>
             <SheetTitle>
-              <Image src={Logo} alt='logo' width={40} />
+              <img src={Logo} alt='logo' width={40} />
             </SheetTitle>
             <SheetDescription>
-              {sidebarOptions.map((option) => (
-                <SideBarLink option={option} key={option.name} />
-              ))}
+              <ul>
+                {sidebarOptions.map((option) => (
+                  <SideBarLink option={option} key={option.name} style={style} />
+                ))}
+              </ul>
             </SheetDescription>
           </SheetHeader>
-          <h1>Sair<LogOut className='cursor-pointer' size={32} onClick={()=>{
-            signOut();
-            router.push('/login');
-          }} /></h1>
+            <a className={
+              cn(
+                style?.textColor
+                  ? `text-${style.textColor} hover:text-[${style.textColorHover}]`
+                  : "text-white hover:text-zinc-200"
+                , "flex gap-3 items-center px-2 py-2 rounded-md space-x-3 cursor-pointer"
+              )
+            }><LogOut color={style?.textColor} onClick={() => {
+              signOut();
+            }
+            } />Sair</a>
         </SheetContent>
-      </Sheet>    
+      </Sheet>
 
-      </div>
-    )
+    </div>
+  )
 }
