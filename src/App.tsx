@@ -1,8 +1,9 @@
 import SidebarDesktop from './components/Sidebar/SidebarDesktop'
+import { User, Settings, Home, SettingsIcon } from 'lucide-react'
 
 import './App.css'
 import SideBarMobile from './components/Sidebar/SidebarMobile'
-import { Home, SettingsIcon, User } from 'lucide-react'
+
 
 function App() {
 
@@ -12,36 +13,33 @@ function App() {
       <div className='bg-red-300'>
         <SidebarDesktop Logo='vite.svg' sidebarOptions={
           [
-            { name: 'Dashboard', href: '/dashboard', icon: Home },
-            { name: 'Profile', href: '/profile', icon: User },
-            { name: 'Settings', href: '/settings', icon: SettingsIcon },
+            { name: 'Dashboard', href: '#', icon: Home },
+            { name: 'Profile', href: '#', icon: User },
+            { name: 'Settings', href: '#', icon: Settings }
           ]
-        } signOut={
-          () => { console.log('signOut') }
-        } style={
-          
+        } signOut={() => { console.log('signOut') }} style={
           {
-            textColor: 'white',
-            textColorHover: 'zinc-200',
-            bgColor: 'zinc-900',
-            bgSelectedPathColor: 'zinc-600',
-            textSelectedPathColor: 'white'
+            textColor: '',
+            textColorHover: '',
+            bgColor: '',
+            bgSelectedPathColor: '',
+            textSelectedPathColor: ''
           }
         } />
         <SideBarMobile Logo='vite.svg' sidebarOptions={
           [
-            { name: 'Dashboard', href: '/dashboard', icon: Home },
-            { name: 'Profile', href: '/profile', icon: User },
-            { name: 'Settings', href: '/settings', icon: SettingsIcon },
+            { name: 'Dashboard', href: '#', icon: Home },
+            { name: 'Profile', href: '#', icon: User },
+            { name: 'Settings', href: '#', icon: SettingsIcon },
           ]
         } signOut={
           () => { console.log('signOut') }
         } style={
           
           {
-            textColor: 'white',
+            textColor: 'blue-500',
             textColorHover: 'zinc-200',
-            bgColor: 'zinc-900',
+            bgColor: 'blue-300',
             bgSelectedPathColor: 'red-500',
             textSelectedPathColor: 'white'
           }

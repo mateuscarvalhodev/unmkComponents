@@ -15,6 +15,7 @@ import {
 
 import { Menu, LogOut } from "lucide-react";
 import { cn } from "../../lib/utils";
+import { SideBarProps } from "./SidebarType";
 
 type MobileSideBarProps = {
   Logo: string;
@@ -24,16 +25,18 @@ type MobileSideBarProps = {
 }
 
 
-export default function SideBarMobile({ Logo, sidebarOptions, style, signOut }: MobileSideBarProps) {
+export default function SideBarMobile({ Logo, sidebarOptions, style, signOut }: SideBarProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [selected, setSelected] = useState<string>('Início');
 
+  console.log(style)
   return (
     <div>
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger className=' md:hidden outline-none' onClick={() => setIsOpen(true)}>
           <Menu />
         </SheetTrigger>
-        <SheetContent side='left' className="bg-red-500">
+        <SheetContent side='left' className={`bg-${style?.bgColor}`}>
           <SheetHeader>
             <SheetTitle>
               <img src={Logo} alt='logo' width={40} />
@@ -41,7 +44,7 @@ export default function SideBarMobile({ Logo, sidebarOptions, style, signOut }: 
             <SheetDescription>
               <ul>
                 {sidebarOptions.map((option) => (
-                  <SideBarLink option={option} key={option.name} style={style} />
+                  <SideBarLink option={option} key={option.name} style={style} selected={selected} setSelected={setSelected}/>
                 ))}
               </ul>
             </SheetDescription>
@@ -50,10 +53,10 @@ export default function SideBarMobile({ Logo, sidebarOptions, style, signOut }: 
               cn(
                 style?.textColor
                   ? `text-${style.textColor} hover:text-[${style.textColorHover}]`
-                  : "text-white hover:text-zinc-200"
+                  : "text-red-500 hover:text-zinc-200"
                 , "flex gap-3 items-center px-2 py-2 rounded-md space-x-3 cursor-pointer"
               )
-            }><LogOut color={style?.textColor} onClick={() => {
+            }><LogOut className={`text-${style?.textColor}`} onClick={() => {
               signOut();
             }
             } />Sair</a>
