@@ -19,11 +19,11 @@ function App() {
           ]
         } signOut={() => { console.log('signOut') }} style={
           {
-            textColor: '',
-            textColorHover: '',
-            bgColor: '',
-            bgSelectedPathColor: '',
-            textSelectedPathColor: ''
+            textColor: 'text-white',
+            textColorHover: 'text-zinc-200',
+            bgColor: 'bg-zinc-900',
+            bgSelectedPathColor: 'bg-zinc-600',
+            textSelectedPathColor: 'text-blue-500'
           }
         } />
         <SideBarMobile Logo='vite.svg' sidebarOptions={

@@ -17,17 +17,16 @@ const Sidebar = () => {
   ];
 
 const style : styleProps = {
-  textColor: '#da3b3b',
-  textColorHover: '#807e7e',
-  bgColor: '#3424',
-  bgSelectedPathColor: '#566',
-  textSelectedPathColor: '#8556'
+  textColor: 'text-white',
+  textColorHover: 'text-zinc-200',
+  bgColor: 'bg-zinc-900',
+  bgSelectedPathColor: 'bg-zinc-600',
+  textSelectedPathColor: 'text-blue-500'
 }
 
 function signOut(){
   console.log('signout')
 }
-
   return (
 
     <div className='absolute p-0 md:relative bg-gray-500'>
