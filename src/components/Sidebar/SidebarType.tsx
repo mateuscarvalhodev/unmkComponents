@@ -1,11 +1,11 @@
 import { LucideIcon } from 'lucide-react';
 
 export type styleProps = {
-    textColor?: string,
-    textColorHover?: string,
-    bgColor?: string,
-    bgSelectedPathColor?: string,
-    textSelectedPathColor?: string,
+    textColor: string | 'text-white',
+    textColorHover?: string | 'text-zinc-200',
+    bgColor?: string | 'bg-zinc-900',
+    bgSelectedPathColor?: string | 'bg-zinc-600',
+    textSelectedPathColor?: string | 'text-blue-500',
 };
 
 export type SideBarOptions = {
