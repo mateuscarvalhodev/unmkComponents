@@ -1,4 +1,4 @@
-import type { SideBarLinkProps } from "./SidebarType";
+import type { SideBarLinkProps } from './SidebarType';
 
 export function SideBarLink({ option, style, selected, setSelected }: SideBarLinkProps) {
 
@@ -12,7 +12,7 @@ export function SideBarLink({ option, style, selected, setSelected }: SideBarLin
               ${
                 option.name == selected
                   ? `${style?.bgSelectedPathColor} ${style?.textSelectedPathColor}`
-                  : `${style?.bgColor} ${style?.textColor} ${'hover:'+style?.textColorHover}`
+                  : `${style?.textColor} ${style?.textColorHover}`
               }
             `}>
             <option.icon

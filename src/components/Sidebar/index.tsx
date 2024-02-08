@@ -1,37 +1,39 @@
-"use client";
+import { Home, User, Settings } from "lucide-react";
+import SidebarDesktop from "./SidebarDesktop";
+import SideBarMobile from "./SidebarMobile";
+import type { SideBarProps } from "./SidebarType";
 
-import Ulogo from "@/assets/Ulogo.svg";
-import SideBarMobile from "./SidebarDesktop";
-import SideBarDesktop from "./SidebarMobile";
-import { FileImage, Home, Mail, User, BarChart } from "lucide-react";
-import type { styleProps } from "./SidebarType";
+const Sidebar = ({...props}: SideBarProps) => {
 
-const Sidebar = () => {
- 
-  const sidebarOptions = [
-      { name: 'Inicio', href: '/agroArea', icon: <Home color="#3e9392"/>},
-      { name: 'Análise de sensores', href: '/agroArea/analytics', icon: FileImage },
-      { name: 'Minha conta', href: '/agroArea/profile', icon: User},
-      { name: 'Mensagens', href: '/agroArea/messages', icon: Mail},
-      { name: 'Safras', href: '/agroArea/safraAnalytics', icon: BarChart}
-  ];
+const sidebarOptions = props.sidebarOptions || [
+  { name: 'Dashboard', href: '#', icon: Home },
+  { name: 'Profile', href: '#', icon: User },
+  { name: 'Settings', href: '#', icon: Settings }
+];
 
-const style : styleProps = {
-  textColor: 'text-white',
-  textColorHover: 'text-zinc-200',
-  bgColor: 'bg-zinc-900',
-  bgSelectedPathColor: 'bg-zinc-600',
-  textSelectedPathColor: 'text-blue-500'
-}
+const styleDesktop = {
+  textColor: props.styleDesktop?.textColor || 'text-white',
+  textColorHover: props.styleDesktop?.textColorHover || 'hover:text-zinc-200',
+  bgColor: props.styleDesktop?.bgColor || 'bg-zinc-900',
+  bgSelectedPathColor: props.styleDesktop?.bgSelectedPathColor || 'bg-zinc-600',
+  textSelectedPathColor: props.styleDesktop?.textSelectedPathColor || 'text-blue-500'
+};
 
-function signOut(){
-  console.log('signout')
-}
+const styleMobile = {
+  textColor: props.styleMobile?.textColor || 'text-white',
+  textColorHover: props.styleMobile?.textColorHover || 'hover:text-zinc-200',
+  bgColor: props.styleMobile?.bgColor || 'bg-zinc-900',
+  bgSelectedPathColor: props.styleMobile?.bgSelectedPathColor || 'bg-zinc-600',
+  textSelectedPathColor: props.styleMobile?.textSelectedPathColor || 'text-blue-500'
+};
+
+const signOut = props.signOut || (() => { console.log('signOut') });
+
   return (
 
-    <div className='absolute p-0 md:relative bg-gray-500'>
-      <SideBarMobile Logo={Ulogo} style={style} sidebarOptions={sidebarOptions} signOut={signOut}  />
-      <SideBarDesktop Logo={Ulogo} style={style} sidebarOptions={sidebarOptions} signOut={signOut} />
+    <div className='absolute p-0 md:relative'>
+      <SidebarDesktop Logo='vite.svg' sidebarOptions={sidebarOptions} signOut={signOut} style={styleDesktop} />
+      <SideBarMobile Logo='vite.svg' sidebarOptions={sidebarOptions} signOut={signOut} style={styleMobile} />
     </div>
   )   
 }
