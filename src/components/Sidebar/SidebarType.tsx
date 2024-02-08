@@ -1,11 +1,11 @@
 import { LucideIcon } from 'lucide-react';
 
 export type styleProps = {
-    textColor: string | 'text-white',
-    textColorHover?: string | 'text-zinc-200',
-    bgColor?: string | 'bg-zinc-900',
-    bgSelectedPathColor?: string | 'bg-zinc-600',
-    textSelectedPathColor?: string | 'text-blue-500',
+    textColor?: `text-${string}` | undefined,
+    textColorHover?: `hover:${string}` | undefined,
+    bgColor?: `bg-${string}` | undefined,
+    bgSelectedPathColor?: `bg-${string}` | undefined,
+    textSelectedPathColor?: `text-${string}` | undefined,
 };
 
 export type SideBarOptions = {
@@ -15,12 +15,29 @@ export type SideBarOptions = {
 };
 
 export type SideBarProps = {
-  Logo: string;
-  sidebarOptions: SideBarOptions[];
-  signOut: () => void;
+  Logo?: string;
+  sidebarOptions?: SideBarOptions[];
+  signOut?: () => void;
   className?: string;
-  style?: styleProps;
-}
+  styleDesktop?: styleProps;
+  styleMobile?: styleProps;
+};
+
+export type SideBarDesktopProps = {
+    Logo?: string;
+    sidebarOptions?: SideBarOptions[];
+    signOut?: () => void;
+    className?: string;
+    style?: styleProps;
+};
+
+export type SideBarMobileProps = {
+    Logo?: string;
+    sidebarOptions?: SideBarOptions[];
+    signOut?: () => void;
+    className?: string;
+    style?: styleProps;
+};
 
 export type SideBarLinkProps = {
     option: { name: string; href: string; icon: LucideIcon };
