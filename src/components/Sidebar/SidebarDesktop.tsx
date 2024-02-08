@@ -44,11 +44,11 @@ export default function SidebarDesktop(
                   <a className={
                     cn(
                       style?.textColor
-                        ? `text-[${style.textColor}] hover:text-[${style.textColorHover}]`
-                        : "text-white hover:text-zinc-200"
+                        ? `text-${style.textColor} hover:text-${style.textColorHover}`
+                        : "text-red-500 hover:text-zinc-200"
                       , "flex gap-3 items-center px-2 py-2 rounded-md cursor-pointer"
                     )
-                  }><LogOut size={22} onClick={() => {
+                  }><LogOut className={`text-${style?.textColor}`} onClick={() => {
                     signOut();
                   }
                   } />Sair</a>
