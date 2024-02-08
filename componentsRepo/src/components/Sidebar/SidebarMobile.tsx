@@ -1,57 +1,55 @@
-"use client";
-
-import { useState } from "react";
-import { SideBarLink } from "./SidebarLink";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-
+import { useState } from 'react';
 import {
-    Sheet,
-    SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
-  } from "@/app/components/ui/sheet";
-
-import { Menu, LogOut } from "lucide-react";
-
-type MobileSideBarProps = {
-    Logo: string;
-    sidebarOptions: { name: string, href: string, icon: any }[];
-    signOut: () => void;
-    style?: any;
-}
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '../../components/ui/sheet';
+import { Menu, LogOut } from 'lucide-react';
+import { SideBarLink } from './SidebarLink';
+import { SideBarMobileProps } from './SidebarType';
 
 
-export default function SideBarMobile({Logo, sidebarOptions, signOut}: MobileSideBarProps) {
-    const [isOpen, setIsOpen] = useState(false);
-    const router = useRouter();
+export default function SideBarMobile({ 
+  Logo, 
+  sidebarOptions,
+  style, 
+  signOut }: SideBarMobileProps) {
 
-    return (
-      <div>
+  const [isOpen, setIsOpen] = useState(false);
+  const [selected, setSelected] = useState<string>('Início');
+
+  return (
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <SheetTrigger className=' md:hidden outline-none' onClick={() => setIsOpen(true)}>
+        <SheetTrigger className='lg:hidden outline-none' onClick={() => setIsOpen(true)}>
           <Menu />
         </SheetTrigger>
-        <SheetContent side='left'>
+        <SheetContent side='left' className={`${style?.bgColor} ${style?.textColor}`}>
           <SheetHeader>
             <SheetTitle>
-              <Image src={Logo} alt='logo' width={40} />
+              <img src={Logo} alt='logo' width={40} />
             </SheetTitle>
             <SheetDescription>
-              {sidebarOptions.map((option) => (
-                <SideBarLink option={option} key={option.name} />
-              ))}
+              <ul>
+                {sidebarOptions!.map((option) => (
+                  <SideBarLink option={option} key={option.name} style={style} selected={selected} setSelected={setSelected}/>
+                ))}
+              </ul>
             </SheetDescription>
           </SheetHeader>
-          <h1>Sair<LogOut className='cursor-pointer' size={32} onClick={()=>{
-            signOut();
-            router.push('/login');
-          }} /></h1>
+            <a className={`
+              ${style?.textColor} ${style?.textColorHover}
+              flex gap-3 items-center px-2 py-2 rounded-md space-x-3 cursor-pointer
+              `}>
+              <LogOut className={`${style?.textColor}`} onClick={() => {
+                signOut!();
+              }
+              } />
+              Sair
+            </a>
         </SheetContent>
-      </Sheet>    
-
-      </div>
-    )
+      </Sheet>
+  )
 }

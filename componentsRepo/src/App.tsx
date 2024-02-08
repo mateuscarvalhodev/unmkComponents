@@ -1,13 +1,14 @@
 
 import './App.css'
+import Sidebar from './components/Sidebar'
 
 function App() {
 
 
   return (
     <>
-      <div className='bg-red-500'>
-
+      <div className=''>
+        <Sidebar />
       </div>
     </>
   )
