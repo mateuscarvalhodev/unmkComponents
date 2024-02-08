@@ -1,4 +1,4 @@
-import SidebarDesktop from './SidebarDesktop';
+import SidebarDesktop from './index';
 
 export default {
   title: 'Components/Sidebar',
