@@ -58,16 +58,16 @@ export default function Footer() {
   return (
     <>
 
-      <footer className="bg-gray-900">
-        <div className="max-w-screen-xl px-4 pt-16 pb-6 mx-auto sm:px-6 lg:px-8 lg:pt-24">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+      <footer className='bg-gray-900'>
+        <div className='max-w-screen-xl px-4 pt-16 pb-6 mx-auto sm:px-6 lg:px-8 lg:pt-24'>
+          <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
             <div>
-              <div className="flex justify-center text-teal-300 sm:justify-start">
-                <img src={unmkLogo} alt="Logo" />
+              <div className='flex justify-center text-teal-300 sm:justify-start'>
+                <img src={unmkLogo} alt='Logo' />
               </div>
 
               <p
-                className="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-400 sm:max-w-xs sm:mx-0 sm:text-left"
+                className='max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-400 sm:max-w-xs sm:mx-0 sm:text-left'
               >
                 Unimake Software, transformando ideias em tecnologia.
               </p>
@@ -77,7 +77,7 @@ export default function Footer() {
             </div>
 
             <div
-              className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 md:grid-cols-4"
+              className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 md:grid-cols-4'
             >
               {linksData.map((group, index) => (
                 <FooterLinks key={index} title={group.title} links={group.links} />
@@ -85,7 +85,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="pt-6 mt-12 border-t border-gray-800">
+          <div className='pt-6 mt-12 border-t border-gray-800'>
             <FooterLegal />
           </div>
         </div>

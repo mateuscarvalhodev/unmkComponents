@@ -1,6 +1,6 @@
 {
-  "name": "componentsrepo",
-  "private": true,
+  "name": "@unimake/componentsrepo",
+  "private": false,
   "version": "0.1.1",
   "type": "module",
   "scripts": {
