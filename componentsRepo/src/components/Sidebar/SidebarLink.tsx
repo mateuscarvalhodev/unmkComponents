@@ -38,7 +38,7 @@ export function SideBarLink({ option, style, selected, setSelected, subSelected,
         <ul className='ml-10 flex flex-col mt-2'>
           {option.fields.map((field) => (
             <li key={field.name} className='flex items-center ' onClick={()=>setSubSelected(field.name)}>
-              <a href={field.href} className={`flex items-center gap-4 items-center px-2 py-2 p-2 rounded-md ${
+              <a href={field.href} className={`flex items-center gap-4 px-3 py-2 p-2 rounded-md ${
                 field.name == subSelected
                   ? `${style?.bgSelectedPathColor} ${style?.textSelectedPathColor}`
                   : `${style?.textColor} ${style?.textColorHover}`
