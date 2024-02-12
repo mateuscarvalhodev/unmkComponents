@@ -51,7 +51,7 @@ export default function SideBarMobile({
           </SheetHeader>
             <a className={`
               ${style?.textColor} ${style?.textColorHover}
-              flex gap-3 items-center px-2 py-2 rounded-md space-x-3 cursor-pointer
+              flex gap-6 items-center px-2 py-2 rounded-md space-x-3 cursor-pointer
               `}>
               <LogOut className={`${style?.textColor}`} onClick={() => {
                 signOut!();
