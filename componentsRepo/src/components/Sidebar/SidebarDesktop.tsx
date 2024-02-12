@@ -1,17 +1,28 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LogOut } from 'lucide-react';
 import { SideBarLink } from './SidebarLink';
 import type { SideBarDesktopProps } from './SidebarType';
 
 export default function SidebarDesktop(
-  { 
+  {
     Logo,
     sidebarOptions,
     signOut,
     style
   }: SideBarDesktopProps) {
 
-  const [selected, setSelected] = useState<string>('Início');
+  const [selected, setSelected] = useState<string>('');
+  const [subSelected, setSubSelected] = useState('')
+
+  // useEffect(()=> {
+  //   console.log("Selecionado",selected)
+  //   console.log(isOpen)
+  //   setIsOpen(selected)
+  //   console.log(isOpen)
+  // }, [selected])
+
+  console.log(selected)
+
   return (
     <div className='hidden h-screen lg:fixed lg:flex lg:w-72 lg:flex-col'>
       <div className={`flex-grow flex flex-col gap-y-5 ${style?.bgColor} overflow-y-auto h-screen px-6 pb-4 border-r-2`}>
@@ -23,7 +34,17 @@ export default function SidebarDesktop(
             <li>
               <ul role='list' className='-mx-2 space-y-1'>
                 {sidebarOptions!.map((option) => (
-                  <SideBarLink option={option} style={style} key={option.name} selected={selected} setSelected={setSelected} />
+                  <SideBarLink
+                    subSelected={subSelected}
+                    setSubSelected={setSubSelected}
+                    option={option}
+                    style={style}
+                    key={option.name}
+                    selected={selected}
+                    setSelected={setSelected}
+                    // isOpen={isOpen}
+                    // setIsOpen={setIsOpen}
+                  />
                 ))}
                 <li>
                   <a

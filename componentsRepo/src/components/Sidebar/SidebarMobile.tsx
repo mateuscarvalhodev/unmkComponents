@@ -13,13 +13,15 @@ import { SideBarMobileProps } from './SidebarType';
 
 
 export default function SideBarMobile({ 
-  Logo, 
+  Logo,
   sidebarOptions,
-  style, 
+  style,
   signOut }: SideBarMobileProps) {
 
   const [isOpen, setIsOpen] = useState(false);
+
   const [selected, setSelected] = useState<string>('Início');
+  const [subSelected, setSubSelected] = useState('')
 
   return (
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -34,7 +36,15 @@ export default function SideBarMobile({
             <SheetDescription>
               <ul>
                 {sidebarOptions!.map((option) => (
-                  <SideBarLink option={option} key={option.name} style={style} selected={selected} setSelected={setSelected}/>
+                  <SideBarLink
+                    selected={selected}
+                    setSelected={setSelected}
+                    option={option}
+                    key={option.name}
+                    style={style}
+                    subSelected={subSelected}
+                    setSubSelected={setSubSelected}
+                  />
                 ))}
               </ul>
             </SheetDescription>

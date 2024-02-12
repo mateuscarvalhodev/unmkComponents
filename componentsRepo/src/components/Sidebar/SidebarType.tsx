@@ -39,9 +39,21 @@ export type SideBarMobileProps = {
     style?: styleProps;
 };
 
+export type SideLinkProps = {
+    name:string,
+    href:string,
+    icon: LucideIcon
+    fields?: SideLinkProps[]
+}
+
 export type SideBarLinkProps = {
-    option: { name: string; href: string; icon: LucideIcon };
+    option: SideLinkProps ;
     style?: styleProps;
     selected: string;
     setSelected: React.Dispatch<React.SetStateAction<string>>;
+    subSelected: string;
+    setSubSelected: React.Dispatch<React.SetStateAction<string>>;
+    // isOpen: string;
+    // setIsOpen: React.Dispatch<React.SetStateAction<string>>;
+    
 };

@@ -6,9 +6,29 @@ import type { SideBarProps } from "./SidebarType";
 const Sidebar = ({...props}: SideBarProps) => {
 
 const sidebarOptions = props.sidebarOptions || [
-  { name: 'Dashboard', href: '#', icon: Home },
+  { name: 'Dashboard', href: '#', icon: Home, fields:[
+    {
+      name: 'Dashboard1', href: '#1', icon: Home,
+    },
+    {
+      name: 'Dashboard2', href: '#2', icon: Home,
+    },
+    {
+      name: 'Dashboard3', href: '#3', icon: Home,
+    }
+  ] },
   { name: 'Profile', href: '#', icon: User },
-  { name: 'Settings', href: '#', icon: Settings }
+  { name: 'Settings', href: '#', icon: Settings, fields:[
+    {
+      name: 'Settings1', href: '#1', icon: Settings
+    },
+    {
+      name: 'Settings2', href: '#2', icon: Settings
+    },
+    {
+      name: 'Settings3', href: '#3', icon: Settings
+    },
+  ] }
 ];
 
 const styleDesktop = {
