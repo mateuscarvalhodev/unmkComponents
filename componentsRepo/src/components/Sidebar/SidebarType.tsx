@@ -1,26 +1,22 @@
 import { LucideIcon } from 'lucide-react';
 
 export type styleProps = {
-    textColor?: `text-${string}` | undefined,
-    textColorHover?: `hover:${string}` | undefined,
-    bgColor?: `bg-${string}` | undefined,
-    bgSelectedPathColor?: `bg-${string}` | undefined,
-    textSelectedPathColor?: `text-${string}` | undefined,
+    textColor?: `text-${string}`,
+    textColorHover?: `hover:${string}`,
+    bgColor?: `bg-${string}`,
+    bgSelectedPathColor?: `bg-${string}`,
+    textSelectedPathColor?: `text-${string}`,
 };
 
-export type SideBarOptions = {
-    name: string;
-    href: string;
-    icon: any;
-};
+
 
 export type SideBarProps = {
-  Logo?: string;
-  sidebarOptions?: SideBarOptions[];
-  signOut?: () => void;
-  className?: string;
-  styleDesktop?: styleProps;
-  styleMobile?: styleProps;
+    Logo?: string;
+    sidebarOptions?: SideBarOptions[];
+    signOut?: () => void;
+    className?: string;
+    styleDesktop?: styleProps;
+    styleMobile?: styleProps;
 };
 
 export type SideBarDesktopProps = {
@@ -39,21 +35,20 @@ export type SideBarMobileProps = {
     style?: styleProps;
 };
 
-export type SideLinkProps = {
-    name:string,
-    href:string,
-    icon: LucideIcon
+export type SideBarOptions = {
+    name: string;
+    href: string;
+    icon: LucideIcon;
+};
+export type SideLinkProps = SideBarOptions & {
     fields?: SideLinkProps[]
 }
 
 export type SideBarLinkProps = {
-    option: SideLinkProps ;
+    option: SideLinkProps;
     style?: styleProps;
     selected: string;
     setSelected: React.Dispatch<React.SetStateAction<string>>;
     subSelected: string;
     setSubSelected: React.Dispatch<React.SetStateAction<string>>;
-    // isOpen: string;
-    // setIsOpen: React.Dispatch<React.SetStateAction<string>>;
-    
 };

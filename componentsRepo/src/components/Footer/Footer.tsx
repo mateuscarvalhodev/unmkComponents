@@ -51,7 +51,7 @@ const socialLinks = [
   { name: 'Facebook', url: 'https://www.facebook.com/UnimakeSoftware', iconSrc: Facebook },
   { name: 'Instagram', url: 'https://www.instagram.com/unimake_software/', iconSrc: Instagram },
   { name: 'Twitter', url: 'https://twitter.com/Unimake', iconSrc: Twitter },
-  { name: 'GitHub', url: 'https://www.linkedin.com/company/unimake-software/mycompany/', iconSrc: LinkedinIcon },
+  { name: 'Linkedin', url: 'https://www.linkedin.com/company/unimake-software/mycompany/', iconSrc: LinkedinIcon },
   { name: 'Website', url: 'https://www.unimake.com.br/', iconSrc: Website },
 ];
 export default function Footer() {

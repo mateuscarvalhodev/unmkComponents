@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { LogOut } from 'lucide-react';
 import { SideBarLink } from './SidebarLink';
 import type { SideBarDesktopProps } from './SidebarType';
@@ -13,13 +13,6 @@ export default function SidebarDesktop(
 
   const [selected, setSelected] = useState<string>('');
   const [subSelected, setSubSelected] = useState('')
-
-  // useEffect(()=> {
-  //   console.log("Selecionado",selected)
-  //   console.log(isOpen)
-  //   setIsOpen(selected)
-  //   console.log(isOpen)
-  // }, [selected])
 
   console.log(selected)
 
@@ -42,8 +35,6 @@ export default function SidebarDesktop(
                     key={option.name}
                     selected={selected}
                     setSelected={setSelected}
-                    // isOpen={isOpen}
-                    // setIsOpen={setIsOpen}
                   />
                 ))}
                 <li>
